@@ -1,17 +1,13 @@
-# 使用官方的 Elasticsearch 镜像作为基础镜像
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.7 # 请根据需要选择合适的版本
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.11.3
 
-# 设置环境变量
 ENV node.name=es01
 ENV bootstrap.memory_lock=false
 ENV discovery.type=single-node
 ENV xpack.security.enabled=true
 ENV xpack.security.http.ssl.enabled=false
 ENV xpack.security.transport.ssl.enabled=false
-ENV TZ=UTC # 或者设置为所需的时区
+ENV TZ=UTC
 
-# 暴露端口
 EXPOSE 9200 9300
 
-# 设置默认命令
 CMD ["elasticsearch"]
